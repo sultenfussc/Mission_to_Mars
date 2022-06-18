@@ -98,11 +98,11 @@ def scrape():
     # load all variables into dictionary
     all_scraped_info = {
         'news_title':news_title,
-        'news_text':news_p,
-        'featured_image':featured_image_url,
+        'news_p':news_p,
+        'featured_image_url':featured_image_url,
         'facts_table': {
-            'comparison_profile': comparison_profile,
-            'mars_profile': mars_profile,
+            'comparison_profile':comparison_profile,
+            'mars_profile':mars_profile,
         },
         'img_urls': img_urls
     }
