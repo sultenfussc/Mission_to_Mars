@@ -1,0 +1,36 @@
+.navbar-brand {
+    background-color: red;
+    color: white;
+    padding-left: 10px;
+    padding-right: 10px;
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+}
+
+.navbar li a {
+    background-color: red;
+    text-decoration: none;    
+    margin-left: 10px;
+    font-size: small;
+    font-family: 'Times New Roman', serif;
+}
+
+  p {
+      margin-bottom: 10px;
+      font-family: 'Times New Roman', serif;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+ @media (max-width: 600px) {
+
+    .navbar-brand {
+        background-color: lightcoral;
+        color: white;
+        padding-left: 10px;
+        padding-right: 10px;
+        font-family: 'Times New Roman', serif;
+        font-weight: bold;
+    }
+}

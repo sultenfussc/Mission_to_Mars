@@ -11,193 +11,106 @@
       
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
-   
-    <!-- Include Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    
+       
     <!-- glyphicons -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"> 
   
     <link rel="stylesheet" href="static/styles.css">
-    <link rel="stylesheet" href="static/bootstrap.min.css">
 
 </head>
 
 <body style="background-color:white">
   <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
       <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><i class="bi bi-house-fill"></i>&nbsp;&nbsp;Mission to Mars</a>
+        <a class="navbar-brand" style="color:blue" href="index.html">Mission to Mars</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+          <span class="navbar-toggler-icon" style="color:red"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                <i class="bi bi-link"></i>&nbsp;&nbsp;&nbsp;Links</a>
+                <i class="bi bi-link" style="color:blue"></i>&nbsp;&nbsp;&nbsp;Links</a>
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                  <li><a class="dropdown-item" href="https://redplanetscience.com/"><i class="bi bi-newspaper"></i>&nbsp;&nbsp;&nbsp;NASA Mars News</a></li>
-                  <li><a class="dropdown-item" href="https://spaceimages-mars.com"><i class="bi bi-images"></i>&nbsp;&nbsp;&nbsp;Mars Space Images</a></li>
-                  <li><a class="dropdown-item" href="https://galaxyfacts-mars.com/"><i class="bi bi-clipboard2-data"></i>&nbsp;&nbsp;&nbsp;Mars Facts</a></li>
-                  <li><a class="dropdown-item" href="https://marshemispheres.com/"><i class="bi bi-globe"></i>&nbsp;&nbsp;&nbsp;Mars Hemispheres</a></li>
+                  <li><a class="dropdown-item" href="https://redplanetscience.com/"><i class="bi bi-newspaper" style="color:blue"></i>&nbsp;&nbsp;&nbsp;NASA Mars News</a></li>
+                  <li><a class="dropdown-item" href="https://spaceimages-mars.com"><i class="bi bi-images" style="color:blue"></i>&nbsp;&nbsp;&nbsp;Mars Space Images</a></li>
+                  <li><a class="dropdown-item" href="https://galaxyfacts-mars.com/"><i class="bi bi-clipboard2-data" style="color:blue"></i>&nbsp;&nbsp;&nbsp;Mars Facts</a></li>
+                  <li><a class="dropdown-item" href="https://marshemispheres.com/"><i class="bi bi-globe" style="color:blue"></i>&nbsp;&nbsp;&nbsp;Mars Hemispheres</a></li>
               </ul>
             </li>
           </div>
       </div>
     </nav>
 
-<body>
-  <div class="container-fluid">
-    <div class="jumbotron text-center">
-      <h1>Mission to Mars</h1>
-      <p>Data that scrapes all the way to the 'Dark Side of the Moon'</p>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button"><i class="bi bi-hand-index"></i>&nbsp;&nbsp;&nbsp;Scrape New Data</a></p>
-      <img width="10%" src="nasa.png" alt="image">
-    </div>
-  <div class="container">
+  <!-- (Jumbotron) -->
+  <body>
+    <div class="container-fluid">
+      <div class="jumbotron text-center py-3" style="background-color: lightgrey">
+        <h1>Mission to Mars</h1>
+        <p>Data that scrapes further than the Dark Side of the Moon!</p>
+        <p><a class="btn btn-primary btn-md" href="/scrape" role="button" style="width:35%"><img style="width:50%" src="static/scrape_mars.png" alt="Click to Scrape Image"></a></p>
+      </div>
+      <p></p>
+      <hr>
+    <div class="container">
 
   <!-- ROW 1 (Latest Mars News and Fetured Img) -->
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-12">
-        </div> <div class="container-fluid">
-          <h2>Latest Mars News</h2>
+          <h2>Latest Mars News:</h2>
+            <h2>{{ all_scraped_info.news_title }}</h2>
+              <p>{{ all_scraped_info.news_p }}</p>
           <hr>
-          <h3>{{ all_scraped_info.news_title }}</h3>
-          <p>{{ all_scraped_info.news_p }}</p>
-        </div>
+      </div>
       </br>
+    </div>
 
    <!-- ROW 2 (Featured Image) -->
    <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        </div><div class="container-fluid">
-          <h2>Featured Mars Image</h2>
-          <img src="{{ all_scraped_info.featured_image_url }}" alt="Featured Mars Image" style="max-width:600px; max-height: 800px;">
+        </div>
+        <div class="container-fluid">
+          <h2 class="text-center">Featured Mars Image</h2>
+          <a href={{all_scraped_info.featured_image_url}} target="_blank"><img  class="img-responsive center-block d-block mx-auto" width="50%" src={{all_scraped_info.featured_image_url}}></a>
+            <p class="text-center"> * Photo courtesy of the Jet Propulsion Laboratory: California Institute of Technology *</p>
+          <hr>
         </div>
       </br>
 
   <!-- ROW 3 (Tables) -->
-  <div class="col-md-6">
-     <div class="container-fluid"></div>
-        <h2>Mars - Earth Comparison</h2>
-          <table border="1" class="dataframe table-fluid table-striped" width="80%">
-          <thead>
-            <tr style="text-align: left;">
-              <th>Measurement</th>
-              <th>Mars</th>
-              <th>Earth</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Diameter:</td>
-              <td>6,779 km</td>
-              <td>12,742 km</td>
-            </tr>
-            <tr>
-              <td>Mass:</td>
-              <td>6.39 × 10^23 kg</td>
-              <td>5.97 × 10^24 kg</td>
-            </tr>
-            <tr>
-              <td>Moons:</td>
-              <td>2</td>
-              <td>1</td>
-            </tr>
-            <tr>
-              <td>Distance from Sun:</td>
-              <td>227,943,824 km</td>
-              <td>149,598,262 km</td>
-            </tr>
-            <tr>
-              <td>Length of Year:</td>
-              <td>687 Earth days</td>
-              <td>365.24 days</td>
-            </tr>
-            <tr>
-              <td>Temperature:</td>
-              <td>-87 to -5 °C</td>
-              <td>-88 to 58°C</td>
-            </tr>
-          </tbody>
-        </table>
+  <div class="container-fluid">
+    <div class="row">    
+      <div class="col-lg-6">
+        <h2 class="text-left">Mars - Earth Comparison</h2>
+          <div class="row justify-content-center">{{ all_scraped_info.facts_table.comparison_profile | safe }}</div>
       </div>
-      <div class="col-md-6">
-        <h2>Mars Planet Profile</h2>
-        <div style=overflow-x:auto>
-          <table border=1 class="dataframe table-fluid table-striped" width="80%">
-          <thead>
-            <tr style="text-align: left;">
-              <th>Mars</th>
-              <th>Planet Data</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Equatorial Diameter:</td>
-              <td>6,792 km</td>
-            </tr>
-            <tr>
-              <td>Mass:</td>
-              <td>6.39 × 10^23 kg (0.11 Earths)</td>
-            </tr>
-            <tr>
-              <td>Moons:</td>
-              <td>2 ( Phobos &amp; Deimos )</td>
-            </tr>
-            <tr>
-              <td>Orbit Distance:</td>
-              <td>227,943,824 km (1.38 AU)</td>
-            </tr>
-            <tr>
-              <td>Orbit Period:</td>
-              <td>687 days (1.9 years)</td>
-            </tr>
-            <tr>
-              <td>Surface Temperature:</td>
-              <td>-87 to -5 °C</td>
-            </tr>
-            <tr>
-              <td>First Record:</td>
-              <td>2nd millennium BC</td>
-            </tr>
-            <tr>
-              <td>Recorded By:</td>
-              <td>Egyptian astronomers</td>
-            </tr>
-          </tbody>
-        </table>
+
+      <div class="col-lg-6">
+        <h2 class="text-left">Mars Planet Profile</h2>
+          <div class="row justify-content-center">{{ all_scraped_info.facts_table.mars_profile | safe }}</div>
       </div>
-      </div>
+      <p></p>
+      <p></p>
+      <hr>
     </div>
-  </br>
+  </div>
+    </br>
 
   <!-- ROW 4 (hemisphere images) -->
-  <div class="container-fluid text-center">
-    <h2>Mars Hemispheres</h2>
-      <hr>  
-          <div class="row">
-            <div class="col-md-3">
-              <image width="100%" class="img-fluid img-thumbnail" src="https://marshemispheres.com/images/full.jpg" alt="Cerberus Hemisphere"></image>
-              <h4>Cerberus Hemisphere Enhanced</h4>
-            </div>
-            <div class="col-md-3">
-              <image width="100%" class="img-fluid img-thumbnail" src="https://marshemispheres.com/images/schiaparelli_enhanced-full.jpg" alt="..."></image>
-              <h4>Schiaparelli Hemisphere Enhanced</h4>
-            </div>
-            <div class="col-md-3">
-              <image width="100%" class="img-fluid img-thumbnail" src="https://marshemispheres.com/images/syrtis_major_enhanced-full.jpg" alt="..."></image>
-              <h4>Syrtis Major Hemisphere Enhanced</h4>
-            </div>
-            <div class="col-md-3">
-              <image width="100%" class="img-fluid img-thumbnail" src="https://marshemispheres.com/images/valles_marineris_enhanced-full.jpg" alt="..."></image>
-              <h4>Valles Marineris Hemisphere Enhanced</h4>
-            </div>
-          </div>
+  <div class="container-fluid">
+    <h2 class="text-center">Mars Hemispheres</h2>
       </div>
+      {% for url in all_scraped_info.img_urls %}
+        <div class="col-md-3 py-4">
+          <a href={{url.img_url}} target="_blank"><img class="img-responsive center-block d-block mx-auto" width="50%" src={{url.img_url}}></a>
+          <h3 class="text-center font: medium text-dark">{{url.title}}</h3>
+        </div>
+      {% endfor %}
+      </div>
+  </div>   
+</div>
 
 </body>
 </html>

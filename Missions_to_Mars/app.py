@@ -6,7 +6,7 @@ import scrape_mars
 # create instance of Flask app
 app = Flask(__name__)
 
-mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_DB")
+mongo = PyMongo(app, uri="mongodb://localhost:27017/mars_infoDB")
 
 # Route to render index.html template using data from Mongo
 @app.route("/")
